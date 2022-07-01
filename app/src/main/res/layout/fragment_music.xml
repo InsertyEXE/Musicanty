@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="16:29"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:alpha="0.6"
+            android:background="@color/black_main"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="16:9"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/frag_music_nome"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="20dp"
+            android:text="nome musica"
+            android:textSize="24dp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:singleLine="true"
+            android:ellipsize="end"
+            app:layout_constraintEnd_toStartOf="@id/frag_music_fav"
+            app:layout_constraintStart_toStartOf="@id/view"
+            app:layout_constraintTop_toTopOf="@+id/view" />
+
+        <TextView
+            android:id="@+id/frag_music_autor"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="nome autor"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="@+id/frag_music_nome"
+            app:layout_constraintStart_toStartOf="@id/frag_music_nome"
+            app:layout_constraintTop_toBottomOf="@+id/frag_music_nome" />
+
+        <ImageView
+            android:id="@+id/frag_music_fav"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/heart"
+            android:layout_marginEnd="30dp"
+            android:tint="@color/pink_light"
+            app:layout_constraintBottom_toBottomOf="@+id/frag_music_nome"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/frag_music_nome"
+            app:layout_constraintTop_toTopOf="@+id/frag_music_nome" />
+
+        <com.google.android.material.slider.Slider
+            android:id="@+id/seekBar"
+            android:layout_width="0dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="@id/frag_music_autor"
+            app:layout_constraintStart_toStartOf="@+id/frag_music_autor"
+            app:layout_constraintTop_toBottomOf="@+id/frag_music_autor" />
+
+        <TextView
+            android:id="@+id/frag_music_currentTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0:00"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="@+id/seekBar"
+            app:layout_constraintTop_toBottomOf="@+id/seekBar" />
+
+        <TextView
+            android:id="@+id/frag_music_endTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="4:44"
+            android:textColor="@color/white"
+            app:layout_constraintTop_toBottomOf="@+id/seekBar"
+            app:layout_constraintEnd_toEndOf="@+id/seekBar" />
+
+        <ImageView
+            android:id="@+id/frag_music_back"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginBottom="12dp"
+            android:backgroundTint="@android:color/transparent"
+            android:clickable="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/back"
+            app:backgroundTint="@android:color/transparent"
+            app:fabSize="mini"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/frag_music_play"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/frag_music_currentTime"
+            app:tint="@color/white"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/frag_music_play"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:src="@drawable/pause"
+            app:backgroundTint="@color/pink_light"
+            app:fabCustomSize="60dp"
+            app:fabSize="auto"
+            android:layout_marginBottom="12dp"
+            app:layout_constraintBottom_toBottomOf="@id/frag_music_back"
+            app:layout_constraintEnd_toStartOf="@id/frag_music_next"
+            app:layout_constraintStart_toEndOf="@id/frag_music_back"
+            app:layout_constraintTop_toTopOf="@id/frag_music_back"
+            app:useCompatPadding="false"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <ImageView
+            android:id="@+id/frag_music_next"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:backgroundTint="@android:color/transparent"
+            android:clickable="true"
+            android:src="@drawable/next"
+            app:backgroundTint="@android:color/transparent"
+            app:fabSize="mini"
+            app:layout_constraintBottom_toBottomOf="@id/frag_music_play"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/frag_music_play"
+            app:layout_constraintTop_toTopOf="@id/frag_music_play"
+            app:tint="@color/white"
+            tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>
